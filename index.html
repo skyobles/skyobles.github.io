@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="lol周免 - 提供最新、最全的《英雄联盟》周免英雄列表、英雄强度分析与出装推荐。查看本周免费试玩英雄，制定上分攻略。">
+    <meta name="keywords" content="lol周免,英雄联盟周免,LOL免费英雄,LOL周免英雄列表,LOL攻略">
+    <title>lol周免 - 英雄联盟免费英雄试玩与攻略指南</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary: #c89b3b; /* LoL Gold */
+            --primary-dark: #8a6e2e;
+            --bg-dark: #121212;
+            --bg-card: #1e1e1e;
+            --bg-header: rgba(18, 18, 18, 0.95);
+            --text-main: #ececec;
+            --text-muted: #a0a0a0;
+            --accent-red: #b14e4e;
+            --accent-blue: #4e7eb1;
+            --spacing-unit: 1rem;
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Utility */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: bold;
+        }
+        .badge-new { background-color: var(--accent-blue); color: white; }
+        .badge-hot { background-color: var(--accent-red); color: white; }
+
+        /* Header */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background-color: var(--bg-header);
+            border-bottom: 1px solid #333;
+            padding: 1rem 0;
+            backdrop-filter: blur(5px);
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            letter-spacing: -0.5px;
+        }
+
+        .logo span {
+            color: var(--text-main);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        .current-time {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(180deg, rgba(30,30,30,0) 0%, var(--bg-dark) 100%),
+                        url('https://picsum.photos/seed/lolmap/1600/600') no-repeat center center/cover;
+            padding: 4rem 0;
+            text-align: center;
+            border-bottom: 1px solid #333;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.6);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            color: #ddd;
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-actions {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .btn {
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.1s, filter 0.2s;
+            border: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: #000;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            filter: brightness(1.1);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--text-main);
+            color: var(--text-main);
+        }
+
+        .btn-outline:hover {
+            background-color: rgba(255,255,255,0.1);
+        }
+
+        /* Main Content */
+        main {
+            padding: 3rem 0;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 2rem;
+            border-left: 4px solid var(--primary);
+            padding-left: 1rem;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            color: var(--text-main);
+        }
+
+        .section-subtitle {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-top: 0.25rem;
+        }
+
+        /* Hero Grid */
+        .hero-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 4rem;
+        }
+
+        .hero-card {
+            background-color: var(--bg-card);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            border: 1px solid #333;
+        }
+
+        .hero-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+            border-color: var(--primary);
+        }
+
+        .hero-img-wrapper {
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .hero-img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .hero-card:hover .hero-img-wrapper img {
+            transform: scale(1.05);
+        }
+
+        .hero-info {
+            padding: 1.5rem;
+        }
+
+        .hero-name {
+            font-size: 1.25rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            color: var(--text-main);
+        }
+
+        .hero-role {
+            font-size: 0.85rem;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .hero-desc {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+        }
+
+        .hero-tags span {
+            font-size: 0.75rem;
+            background: #333;
+            padding: 2px 6px;
+            border-radius: 4px;
+            color: #ccc;
+            margin-right: 5px;
+        }
+
+        /* Strength Analysis Section */
+        .analysis-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .analysis-card {
+            background-color: var(--bg-card);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid #333;
+        }
+
+        .analysis-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .analysis-icon {
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+
+        .analysis-title {
+            font-size: 1.1rem;
+            font-weight: bold;
+        }
+
+        .analysis-list li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+            color: #ccc;
+        }
+
+        .analysis-list li::before {
+            content: '•';
+            color: var(--primary);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        /* Guide Section */
+        .guide-section {
+            background-color: #1a1a1a;
+            padding: 3rem 0;
+            margin-top: 2rem;
+        }
+
+        .guide-grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 2rem;
+        }
+
+        .guide-sidebar {
+            background-color: var(--bg-card);
+            padding: 1.5rem;
+            border-radius: 12px;
+            height: fit-content;
+        }
+
+        .guide-list li {
+            margin-bottom: 0.5rem;
+        }
+
+        .guide-list a {
+            display: block;
+            padding: 0.75rem;
+            border-radius: 6px;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .guide-list a:hover, .guide-list a.active {
+            background-color: rgba(200, 155, 59, 0.1);
+            color: var(--primary);
+        }
+
+        .guide-content article {
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid #333;
+        }
+
+        .guide-content article:last-child {
+            border-bottom: none;
+        }
+
+        .guide-content h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: var(--text-main);
+        }
+
+        .guide-content p {
+            margin-bottom: 1rem;
+            color: #bbb;
+        }
+
+        /* FAQ */
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto 4rem;
+        }
+
+        details {
+            background-color: var(--bg-card);
+            margin-bottom: 1rem;
+            border-radius: 8px;
+            border: 1px solid #333;
+            overflow: hidden;
+        }
+
+        summary {
+            padding: 1rem 1.5rem;
+            cursor: pointer;
+            font-weight: bold;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--text-main);
+        }
+
+        summary::-webkit-details-marker {
+            display: none;
+        }
+
+        summary::after {
+            content: '+';
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+
+        details[open] summary::after {
+            content: '-';
+        }
+
+        .faq-content {
+            padding: 1rem 1.5rem;
+            color: var(--text-muted);
+            border-top: 1px solid #333;
+            background-color: rgba(0,0,0,0.2);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #0a0a0a;
+            padding: 3rem 0;
+            border-top: 1px solid #333;
+            margin-top: auto;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-col h4 {
+            color: var(--text-main);
+            margin-bottom: 1.2rem;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 0.6rem;
+        }
+
+        .footer-col ul li a {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--primary);
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #222;
+            color: #555;
+            font-size: 0.85rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-inner {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            nav ul {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .guide-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-actions {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-inner">
+            <a href="#" class="logo">lol<span>周免</span></a>
+            <nav>
+                <ul>
+                    <li><a href="#">本周英雄</a></li>
+                    <li><a href="#">英雄攻略</a></li>
+                    <li><a href="#">版本更新</a></li>
+                    <li><a href="#">英雄图鉴</a></li>
+                </ul>
+            </nav>
+            <div class="current-time" id="currentTime">加载时间中...</div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>本周免费英雄试玩指南</h1>
+            <p>掌握本周 lol 周免英雄的强势玩法与出装思路，快速上分，体验全新战术组合。</p>
+            <div class="hero-actions">
+                <a href="#hero-list" class="btn btn-primary">查看本周列表</a>
+                <a href="#" class="btn btn-outline">新手入门教程</a>
+            </div>
+        </div>
+    </section>
+
+    <main class="container">
+        
+        <!-- Free Heroes Section -->
+        <section id="hero-list">
+            <div class="section-header">
+                <div>
+                    <h2 class="section-title">本周免费英雄</h2>
+                    <p class="section-subtitle">更新时间：2024年10月23日</p>
+                </div>
+                <a href="#" style="color:var(--primary); font-size:0.9rem;">查看完整英雄图鉴 &rarr;</a>
+            </div>
+
+            <div class="hero-grid">
+                <!-- Card 1 -->
+                <article class="hero-card">
+                    <div class="hero-img-wrapper">
+                        <img src="https://picsum.photos/seed/ahri/400/300" alt="阿狸">
+                    </div>
+                    <div class="hero-info">
+                        <div class="hero-name">阿狸</div>
+                        <div class="hero-role">法师 / 刺客</div>
+                        <p class="hero-desc">高机动性的法师刺客，拥有多段位移和魅惑技能，适合游走支援。</p>
+                        <div class="hero-tags">
+                            <span>团控</span>
+                            <span>收割</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 2 -->
+                <article class="hero-card">
+                    <div class="hero-img-wrapper">
+                        <img src="https://picsum.photos/seed/garen/400/300" alt="盖伦">
+                    </div>
+                    <div class="hero-info">
+                        <div class="hero-name">盖伦</div>
+                        <div class="hero-role">战士 / 坦克</div>
+                        <p class="hero-desc">简单粗暴的战士英雄，拥有极高的生存能力和斩杀效果，新手首选。</p>
+                        <div class="hero-tags">
+                            <span>单带</span>
+                            <span>开团</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 3 -->
+                <article class="hero-card">
+                    <div class="hero-img-wrapper">
+                        <img src="https://picsum.photos/seed/ashe/400/300" alt="艾希">
+                    </div>
+                    <div class="hero-info">
+                        <div class="hero-name">艾希</div>
+                        <div class="hero-role">射手 / 控制</div>
+                        <p class="hero-desc">拥有全图大招的射手，前期消耗能力强，是团队开团的重要手段。</p>
+                        <div class="hero-tags">
+                            <span>开团</span>
+                            <span>减速</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 4 -->
+                <article class="hero-card">
+                    <div class="hero-img-wrapper">
+                        <img src="https://picsum.photos/seed/yasuo/400/300" alt="亚索">
+                    </div>
+                    <div class="hero-info">
+                        <div class="hero-name">亚索</div>
+                        <div class="hero-role">战士 / 刺客</div>
+                        <p class="hero-desc">依靠风墙格挡技能的剑客，操作上限极高，需要良好的走位意识。</p>
+                        <div class="hero-tags">
+                            <span>灵活</span>
+                            <span>操作</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Strength Analysis -->
+        <section>
+            <div class="section-header">
+                <h2 class="section-title">周免英雄强度分析</h2>
+            </div>
+            <div class="analysis-grid">
+                <div class="analysis-card">
+                    <div class="analysis-header">
+                        <div class="analysis-icon">🔥</div>
+                        <div class="analysis-title">T0 级推荐</div>
+                    </div>
+                    <ul class="analysis-list">
+                        <li><strong>阿狸：</strong>当前版本中路统治力极强，技能CD短，推线快。</li>
+                        <li><strong>艾希：</strong>下路胜率回升，配合硬辅开团能力出色。</li>
+                    </ul>
+                </div>
+                <div class="analysis-card">
+                    <div class="analysis-header">
+                        <div class="analysis-icon">⚖️</div>
+                        <div class="analysis-title">平衡选择</div>
+                    </div>
+                    <ul class="analysis-list">
+                        <li><strong>盖伦：</strong>上单环境依然稳健，适合克制高机动性刺客。</li>
+                        <li><strong>亚索：</strong>在低分段和高端分段都有出场机会，需注意阵容搭配。</li>
+                    </ul>
+                </div>
+                <div class="analysis-card">
+                    <div class="analysis-header">
+                        <div class="analysis-icon">💡</div>
+                        <div class="analysis-title">出装思路</div>
+                    </div>
+                    <ul class="analysis-list">
+                        <li>法师类英雄首选 <strong>卢登的回声</strong> 或 <strong>虚空之杖</strong>。</li>
+                        <li>战士类英雄建议 <strong>破败王者之刃</strong> 增加容错率。</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Guide Section -->
+        <section class="guide-section">
+            <div class="container">
+                <div class="guide-grid">
+                    <aside>
+                        <div class="guide-sidebar">
+                            <h3 style="margin-bottom:1rem; color:var(--text-main);">攻略导航</h3>
+                            <ul class="guide-list">
+                                <li><a href="#" class="active">阿狸：连招与技巧</a></li>
+                                <li><a href="#">盖伦：对线细节</a></li>
+                                <li><a href="#">艾希：大招命中率训练</a></li>
+                                <li><a href="#">亚索：风墙使用时机</a></li>
+                                <li><a href="#">更多英雄攻略...</a></li>
+                            </ul>
+                        </div>
+                    </aside>
+                    <article class="guide-content">
+                        <article>
+                            <h3>阿狸：连招与技巧</h3>
+                            <p>阿狸的核心在于利用被动技能的第三段攻击进行消耗。在游走支援时，先手二技能（魅惑）命中敌人后接三技能（灵魄突袭）追击，最后用大招（妖异狐火）收割。</p>
+                            <p><strong>符文推荐：</strong> 电击 + 急速CD + 灵光披风 + 绝命猎手。</p>
+                        </article>
+                        <article>
+                            <h3>盖伦：对线细节</h3>
+                            <p>盖伦不需要过多的装备就能打出伤害。利用W技能（勇气）抵挡关键控制技能，在敌方技能交完后利用E技能（审判）进行消耗和换血。</p>
+                            <p><strong>出装建议：</strong> 三相之力或血手，根据敌方阵容选择护甲或魔抗。</p>
+                        </article>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section class="faq-container">
+            <h2 class="section-title" style="margin-bottom: 2rem; text-align: center;">常见问题</h2>
+            <details>
+                <summary>lol周免英雄什么时候更新？</summary>
+                <div class="faq-content">
+                    英雄联盟的周免英雄通常在每周一凌晨进行更新。具体时间可能因服务器维护而略有浮动，建议关注官方公告。
+                </div>
+            </details>
+            <details>
+                <summary>周免英雄可以用来打排位赛吗？</summary>
+                <div class="faq-content">
+                    是的，只要该英雄在当前赛季内没有处于“禁用”状态，你就可以使用周免英雄进行排位赛、匹配赛或大乱斗模式。
+                </div>
+            </details>
+            <details>
+                <summary>如何快速记住本周的免费英雄？</summary>
+                <div class="faq-content">
+                    建议在排位准备阶段打开本页面，或者使用游戏内的“英雄试玩”功能快速体验每个英雄的技能手感，结合本页面的强度分析选择适合自己位置的英雄。
+                </div>
+            </details>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h4>关于 lol周免</h4>
+                    <p style="color:#666; font-size:0.9rem; line-height:1.6;">
+                        本站致力于为玩家提供最及时、准确的英雄联盟周免英雄列表与攻略资讯。帮助玩家快速试玩新英雄，提升游戏水平。
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h4>快速导航</h4>
+                    <ul>
+                        <li><a href="#">英雄图鉴</a></li>
+                        <li><a href="#">装备大全</a></li>
+                        <li><a href="#">召唤师技能</a></li>
+                        <li><a href="#">符文天赋</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>社区互动</h4>
+                    <ul>
+                        <li><a href="#">玩家论坛</a></li>
+                        <li><a href="#">攻略投稿</a></li>
+                        <li><a href="#">英雄投票</a></li>
+                        <li><a href="#">联系我们</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2024 lol周免指南. 本站内容仅供学习交流，非官方网站。
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 简单的脚本用于显示当前时间
+        function updateTime() {
+            const now = new Date();
+            const options = { year: 'numeric', month: '2-digit', day: '2-digit', weekday: 'short' };
+            document.getElementById('currentTime').textContent = now.toLocaleDateString('zh-CN', options);
+        }
+        updateTime();
+    </script>
+</body>
+  </html>
