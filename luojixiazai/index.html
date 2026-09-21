@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="罗技下载官方中心提供最新驱动程序、Logitech Options+ 配套软件及 Gaming Software 下载，支持鼠标、键盘、耳机及音箱等罗技外设设备。">
+    <meta name="keywords" content="罗技下载,罗技驱动,Logitech Options,罗技软件,Gaming Software">
+    <title>罗技下载-官方驱动与软件中心</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #0099ff;
+            --secondary-color: #005bb5;
+            --accent-color: #ff9900;
+            --bg-color: #f5f7fa;
+            --card-bg: #ffffff;
+            --text-main: #333333;
+            --text-light: #666666;
+            --border-color: #e1e4e8;
+            --spacing-unit: 16px;
+            --container-width: 1200px;
+            --radius: 8px;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--card-bg);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.03);
+        }
+
+        .header-inner {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+            height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--text-main);
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 24px;
+        }
+
+        .nav-menu a {
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--text-main);
+        }
+
+        .nav-menu a:hover {
+            color: var(--primary-color);
+        }
+
+        .search-box {
+            display: flex;
+            background: var(--bg-color);
+            border-radius: 4px;
+            padding: 4px;
+        }
+
+        .search-box input {
+            border: none;
+            background: transparent;
+            padding: 6px 12px;
+            font-size: 14px;
+            width: 200px;
+            outline: none;
+        }
+
+        .search-box button {
+            border: none;
+            background: var(--primary-color);
+            color: white;
+            padding: 0 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        .hero h1 {
+            font-size: 36px;
+            margin-bottom: 16px;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 18px;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto 32px;
+        }
+
+        .hero-actions {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+        }
+
+        .btn {
+            padding: 10px 24px;
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background-color: white;
+            color: var(--primary-color);
+        }
+
+        .btn-outline {
+            border: 2px solid white;
+            color: white;
+            background: transparent;
+        }
+
+        .btn:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
+        }
+
+        /* Main Container */
+        .main-container {
+            max-width: var(--container-width);
+            margin: -32px auto 40px;
+            padding: 0 var(--spacing-unit);
+            position: relative;
+            z-index: 10;
+        }
+
+        /* Category Grid */
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .category-card {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            padding: 24px;
+            box-shadow: var(--shadow);
+            transition: transform 0.2s, box-shadow 0.2s;
+            border: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .category-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+            border-color: var(--primary-color);
+        }
+
+        .cat-icon {
+            width: 48px;
+            height: 48px;
+            background-color: #e6f2ff;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 16px;
+            color: var(--primary-color);
+            font-size: 24px;
+        }
+
+        .category-card h3 {
+            font-size: 18px;
+            margin-bottom: 8px;
+            color: var(--text-main);
+        }
+
+        .category-card p {
+            font-size: 14px;
+            color: var(--text-light);
+            margin-bottom: 16px;
+            flex-grow: 1;
+        }
+
+        .cat-link {
+            font-size: 14px;
+            color: var(--primary-color);
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .cat-link::after {
+            content: '→';
+            margin-left: 4px;
+            transition: margin-left 0.2s;
+        }
+
+        .cat-link:hover::after {
+            margin-left: 8px;
+        }
+
+        /* Software List Section */
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .section-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--text-main);
+            position: relative;
+        }
+
+        .section-title::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -13px;
+            width: 40px;
+            height: 4px;
+            background-color: var(--primary-color);
+            border-radius: 2px;
+        }
+
+        .software-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .software-item {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            border: 1px solid transparent;
+            transition: all 0.2s;
+        }
+
+        .software-item:hover {
+            border-color: var(--primary-color);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        .sw-info {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .sw-icon {
+            width: 50px;
+            height: 50px;
+            background-color: #f0f2f5;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            font-weight: bold;
+            color: var(--text-light);
+        }
+
+        .sw-text h4 {
+            font-size: 16px;
+            margin-bottom: 4px;
+        }
+
+        .sw-text p {
+            font-size: 13px;
+            color: var(--text-light);
+        }
+
+        .sw-meta {
+            display: flex;
+            gap: 24px;
+            font-size: 13px;
+            color: var(--text-light);
+            margin-right: 32px;
+        }
+
+        .sw-meta span {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .btn-download {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 4px;
+            font-size: 14px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .btn-download:hover {
+            background-color: var(--secondary-color);
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            background-color: var(--card-bg);
+            border-radius: var(--radius);
+            padding: 32px;
+            margin-bottom: 40px;
+            box-shadow: var(--shadow);
+        }
+
+        .faq-item {
+            border-bottom: 1px solid var(--border-color);
+            padding: 16px 0;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-question {
+            font-weight: 600;
+            font-size: 16px;
+            margin-bottom: 8px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-question:hover {
+            color: var(--primary-color);
+        }
+
+        .faq-answer {
+            font-size: 14px;
+            color: var(--text-light);
+            padding-left: 4px;
+            display: none;
+            margin-top: 8px;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        .faq-icon {
+            transition: transform 0.3s;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            padding: 48px 0 24px;
+        }
+
+        .footer-content {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            font-size: 16px;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            color: #bdc3c7;
+            font-size: 14px;
+        }
+
+        .footer-col ul li a:hover {
+            color: white;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 24px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 13px;
+            color: #95a5a6;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-inner {
+                flex-direction: column;
+                height: auto;
+                padding: 12px;
+                gap: 12px;
+            }
+            
+            .nav-menu {
+                display: none; /* Simplified for mobile demo */
+            }
+
+            .search-box {
+                width: 100%;
+            }
+
+            .search-box input {
+                width: 100%;
+            }
+
+            .hero h1 {
+                font-size: 28px;
+            }
+
+            .software-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 16px;
+            }
+
+            .sw-meta {
+                width: 100%;
+                justify-content: space-between;
+            }
+
+            .sw-info {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-inner">
+            <a href="#" class="logo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                <span>罗技驱动中心</span>
+            </a>
+            <nav class="nav-menu">
+                <a href="#">设备分类</a>
+                <a href="#">驱动下载</a>
+                <a href="#">常见问题</a>
+                <a href="#">支持中心</a>
+            </nav>
+            <div class="search-box">
+                <input type="text" placeholder="搜索驱动或产品型号...">
+                <button>搜索</button>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>为您的罗技设备获取最佳性能</h1>
+            <p>访问官方软件中心，下载 Logitech Options、Gaming Software 及其他配套工具，定制您的专属体验。</p>
+            <div class="hero-actions">
+                <a href="#popular" class="btn btn-primary">浏览热门软件</a>
+                <a href="#guide" class="btn btn-outline">安装指南</a>
+            </div>
+        </div>
+    </section>
+
+    <main class="main-container">
+        
+        <!-- Category Section -->
+        <section class="category-grid">
+            <article class="category-card">
+                <div class="cat-icon">🖱️</div>
+                <h3>鼠标与触控板</h3>
+                <p>下载 Logitech Options，配置 DPI、侧键功能及多设备切换设置。</p>
+                <a href="#" class="cat-link">查看鼠标驱动</a>
+            </article>
+
+            <article class="category-card">
+                <div class="cat-icon">⌨️</div>
+                <h3>键盘与游戏键盘</h3>
+                <p>获取 G Hub 或 Options 软件，设置宏命令、RGB 灯效及按键映射。</p>
+                <a href="#" class="cat-link">查看键盘驱动</a>
+            </article>
+
+            <article class="category-card">
+                <div class="cat-icon">🎧</div>
+                <h3>音频设备</h3>
+                <p>更新耳机与音箱固件，优化音质设置，获得沉浸式听觉体验。</p>
+                <a href="#" class="cat-link">查看音频驱动</a>
+            </article>
+
+            <article class="category-card">
+                <div class="cat-icon">🎮</div>
+                <h3>游戏软件</h3>
+                <p>使用 Logitech G Hub 体验专业级游戏配置，包括设备分组与游戏内设置。</p>
+                <a href="#" class="cat-link">下载 G Hub</a>
+            </article>
+        </section>
+
+        <!-- Software List Section -->
+        <section id="popular">
+            <div class="section-header">
+                <h2 class="section-title">热门下载软件</h2>
+                <a href="#" style="font-size: 14px; color: var(--primary-color); font-weight: 600;">查看全部软件 &rarr;</a>
+            </div>
+
+            <div class="software-list">
+                <!-- Software Item 1 -->
+                <article class="software-item">
+                    <div class="sw-info">
+                        <div class="sw-icon">L</div>
+                        <div class="sw-text">
+                            <h4>Logitech Options+</h4>
+                            <p>适用于 MX Master、MX Anywhere 等系列鼠标及触控板。</p>
+                        </div>
+                    </div>
+                    <div class="sw-meta">
+                        <span>支持系统: Windows 10/11, macOS</span>
+                        <span>大小: 约 120 MB</span>
+                    </div>
+                    <button class="btn-download" onclick="simulateDownload(this)">下载</button>
+                </article>
+
+                <!-- Software Item 2 -->
+                <article class="software-item">
+                    <div class="sw-info">
+                        <div class="sw-icon">G</div>
+                        <div class="sw-text">
+                            <h4>Logitech G Hub</h4>
+                            <p>游戏外设控制中心，支持鼠标、键盘、耳机及游戏手柄。</p>
+                        </div>
+                    </div>
+                    <div class="sw-meta">
+                        <span>支持系统: Windows 10/11</span>
+                        <span>大小: 约 250 MB</span>
+                    </div>
+                    <button class="btn-download" onclick="simulateDownload(this)">下载</button>
+                </article>
+
+                <!-- Software Item 3 -->
+                <article class="software-item">
+                    <div class="sw-info">
+                        <div class="sw-icon">O</div>
+                        <div class="sw-text">
+                            <h4>Logitech Options</h4>
+                            <p>经典版设置软件，适用于经典型号鼠标及键盘的日常配置。</p>
+                        </div>
+                    </div>
+                    <div class="sw-meta">
+                        <span>支持系统: Windows 7/8/10, macOS</span>
+                        <span>大小: 约 80 MB</span>
+                    </div>
+                    <button class="btn-download" onclick="simulateDownload(this)">下载</button>
+                </article>
+
+                <!-- Software Item 4 -->
+                <article class="software-item">
+                    <div class="sw-info">
+                        <div class="sw-icon">S</div>
+                        <div class="sw-text">
+                            <h4>Sonic Studio</h4>
+                            <p>适用于罗技 G 系列 Headset 的高级音频设置软件。</p>
+                        </div>
+                    </div>
+                    <div class="sw-meta">
+                        <span>支持系统: Windows 10/11</span>
+                        <span>大小: 约 60 MB</span>
+                    </div>
+                    <button class="btn-download" onclick="simulateDownload(this)">下载</button>
+                </article>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="guide" class="faq-section">
+            <div class="section-header">
+                <h2 class="section-title">常见问题解答</h2>
+            </div>
+            
+            <div class="faq-list">
+                <div class="faq-item active">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        下载后如何安装驱动？
+                        <span class="faq-icon">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        下载安装包后，双击运行。按照向导提示完成安装，安装过程中请确保设备已连接电脑。
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        为什么我的设备无法被软件识别？
+                        <span class="faq-icon">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        请检查设备是否开启蓝牙或 USB 接收器连接正常。如果是无线设备，请尝试更换 USB 端口或更换电池。
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        旧型号鼠标可以使用 Options+ 吗？
+                        <span class="faq-icon">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        Options+ 主要支持较新的 MX 系列及 G 系列部分产品。较旧的型号可能仍需使用 Logitech Options 或原厂光盘驱动。
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <h4>关于下载中心</h4>
+                <ul>
+                    <li><a href="#">隐私政策</a></li>
+                    <li><a href="#">服务条款</a></li>
+                    <li><a href="#">Cookie 设置</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>产品支持</h4>
+                <ul>
+                    <li><a href="#">设备查找器</a></li>
+                    <li><a href="#">社区论坛</a></li>
+                    <li><a href="#">联系客服</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>相关链接</h4>
+                <ul>
+                    <li><a href="#">罗技中国官网</a></li>
+                    <li><a href="#">罗技 G 官网</a></li>
+                    <li><a href="#">合作伙伴</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2023-2024 Logitech Downloads Center. 此页面为演示设计，非罗技官方网站。</p>
+        </div>
+    </footer>
+
+    <script>
+        // FAQ Toggle Logic
+        function toggleFaq(element) {
+            const item = element.parentElement;
+            const wasActive = item.classList.contains('active');
+            
+            // Close all items
+            document.querySelectorAll('.faq-item').forEach(faq => {
+                faq.classList.remove('active');
+            });
+
+            // Open clicked item if it wasn't active
+            if (!wasActive) {
+                item.classList.add('active');
+            }
+        }
+
+        // Button Interaction Logic
+        function simulateDownload(btn) {
+            const originalText = btn.innerText;
+            btn.innerText = "下载中...";
+            btn.style.backgroundColor = "#28a745";
+            
+            setTimeout(() => {
+                btn.innerText = "已开始下载";
+                btn.style.backgroundColor = "#17a2b8";
+                btn.disabled = true;
+                
+                setTimeout(() => {
+                    btn.innerText = originalText;
+                    btn.style.backgroundColor = "";
+                    btn.disabled = false;
+                }, 3000);
+            }, 800);
+        }
+    </script>
+</body>
+</html>
