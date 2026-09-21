@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>国产国产乱老熟视频网站-高清视频内容分享平台</title>
+    <meta name="description" content="本站提供国产国产乱老熟视频网站相关的高清视频内容分享与在线观看服务，包含丰富的视频分类、热门推荐及更新资讯。">
+    <meta name="keywords" content="国产国产乱老熟视频网站,高清视频,在线观看,视频分享">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #e63946;
+            --secondary-color: #1d3557;
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-main: #333333;
+            --text-secondary: #666666;
+            --border-radius: 8px;
+            --spacing-unit: 16px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Layout */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        /* Header */
+        header {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--primary-color);
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-menu a {
+            color: rgba(255,255,255,0.9);
+            font-size: 0.95rem;
+        }
+
+        .nav-menu a:hover {
+            color: var(--primary-color);
+        }
+
+        .search-box {
+            display: flex;
+        }
+
+        .search-box input {
+            padding: 8px;
+            border: none;
+            border-radius: 4px 0 0 4px;
+            width: 200px;
+        }
+
+        .search-box button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--secondary-color) 0%, #457b9d 100%);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Main Content Grid */
+        .content-grid {
+            display: grid;
+            grid-template-columns: 3fr 1fr;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        /* Video Section */
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 0.5rem;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            color: var(--secondary-color);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--primary-color);
+        }
+
+        .video-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .video-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .video-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+        }
+
+        .card-thumb {
+            width: 100%;
+            height: 180px;
+            background-color: #ddd;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .play-icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 50px;
+            height: 50px;
+            background: rgba(0,0,0,0.6);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        .card-info {
+            padding: 1rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-title {
+            font-size: 1.1rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            color: var(--text-main);
+            line-height: 1.4;
+        }
+
+        .card-meta {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        .card-tags {
+            margin-top: auto;
+            display: flex;
+            gap: 5px;
+        }
+
+        .tag {
+            background-color: #f1f1f1;
+            color: var(--text-secondary);
+            font-size: 0.75rem;
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+
+        /* Sidebar */
+        aside {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .sidebar-widget {
+            background: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .widget-title {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid #eee;
+            color: var(--secondary-color);
+        }
+
+        .rank-list li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.8rem;
+            font-size: 0.95rem;
+        }
+
+        .rank-num {
+            width: 24px;
+            height: 24px;
+            background-color: var(--secondary-color);
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 24px;
+            font-size: 0.8rem;
+            margin-right: 10px;
+            flex-shrink: 0;
+        }
+
+        .rank-list li:nth-child(1) .rank-num { background-color: #ff4757; }
+        .rank-list li:nth-child(2) .rank-num { background-color: #ffa502; }
+        .rank-list li:nth-child(3) .rank-num { background-color: #2ed573; }
+
+        .rank-link {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            flex: 1;
+        }
+
+        /* Banner */
+        .ad-banner {
+            width: 100%;
+            height: 120px;
+            background-color: #e9ecef;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #6c757d;
+            margin-bottom: 2rem;
+            border-radius: var(--border-radius);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--secondary-color);
+            color: rgba(255,255,255,0.7);
+            padding: 3rem 0;
+            margin-top: 3rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-col h3 {
+            color: white;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-col ul li a:hover {
+            color: white;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-menu {
+                display: none; /* Simplified for mobile */
+            }
+
+            .header-inner {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .search-box {
+                width: 100%;
+            }
+
+            .search-box input {
+                width: 100%;
+            }
+            
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-inner">
+            <a href="#" class="logo">
+                <span>◆</span> 视频分享平台
+            </a>
+            <nav class="nav-menu">
+                <a href="#">首页</a>
+                <a href="#">最新更新</a>
+                <a href="#">高清分类</a>
+                <a href="#">排行榜</a>
+                <a href="#">会员中心</a>
+            </nav>
+            <div class="search-box">
+                <input type="text" placeholder="搜索视频内容...">
+                <button>搜索</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>探索丰富内容</h1>
+                <p>提供海量高清视频资源，满足您的观看需求，每日持续更新优质内容。</p>
+            </div>
+        </section>
+
+        <div class="container">
+            <div class="content-grid">
+                <!-- Main Video List -->
+                <section class="video-section">
+                    <div class="section-header">
+                        <h2 class="section-title">最新推荐</h2>
+                        <a href="#" style="color: var(--primary-color); font-size: 0.9rem;">查看更多 &gt;</a>
+                    </div>
+                    
+                    <div class="video-list">
+                        <!-- Card 1 -->
+                        <article class="video-card">
+                            <a href="#" class="card-thumb">
+                                <img src="https://picsum.photos/seed/vid1/400/300" alt="视频缩略图">
+                                <div class="play-icon">▶</div>
+                            </a>
+                            <div class="card-info">
+                                <h3 class="card-title"><a href="#">高清画质分享：最新一期精彩内容回顾</a></h3>
+                                <div class="card-meta">播放量: 12,304 &nbsp;|&nbsp; 更新: 2023-10-24</div>
+                                <div class="card-tags">
+                                    <span class="tag">高清</span>
+                                    <span class="tag">全集</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Card 2 -->
+                        <article class="video-card">
+                            <a href="#" class="card-thumb">
+                                <img src="https://picsum.photos/seed/vid2/400/300" alt="视频缩略图">
+                                <div class="play-icon">▶</div>
+                            </a>
+                            <div class="card-info">
+                                <h3 class="card-title"><a href="#">精选分类内容：为您呈现最优质资源</a></h3>
+                                <div class="card-meta">播放量: 8,521 &nbsp;|&nbsp; 更新: 2023-10-23</div>
+                                <div class="card-tags">
+                                    <span class="tag">精选</span>
+                                    <span class="tag">高清</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Card 3 -->
+                        <article class="video-card">
+                            <a href="#" class="card-thumb">
+                                <img src="https://picsum.photos/seed/vid3/400/300" alt="视频缩略图">
+                                <div class="play-icon">▶</div>
+                            </a>
+                            <div class="card-info">
+                                <h3 class="card-title"><a href="#">热门内容合集：不容错过的精彩瞬间</a></h3>
+                                <div class="card-meta">播放量: 15,678 &nbsp;|&nbsp; 更新: 2023-10-22</div>
+                                <div class="card-tags">
+                                    <span class="tag">热门</span>
+                                    <span class="tag">合集</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Card 4 -->
+                        <article class="video-card">
+                            <a href="#" class="card-thumb">
+                                <img src="https://picsum.photos/seed/vid4/400/300" alt="视频缩略图">
+                                <div class="play-icon">▶</div>
+                            </a>
+                            <div class="card-info">
+                                <h3 class="card-title"><a href="#">更新日志：新内容上线通知</a></h3>
+                                <div class="card-meta">播放量: 5,432 &nbsp;|&nbsp; 更新: 2023-10-21</div>
+                                <div class="card-tags">
+                                    <span class="tag">更新</span>
+                                    <span class="tag">通知</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Card 5 -->
+                        <article class="video-card">
+                            <a href="#" class="card-thumb">
+                                <img src="https://picsum.photos/seed/vid5/400/300" alt="视频缩略图">
+                                <div class="play-icon">▶</div>
+                            </a>
+                            <div class="card-info">
+                                <h3 class="card-title"><a href="#">分类浏览指南：如何找到您感兴趣的内容</a></h3>
+                                <div class="card-meta">播放量: 9,876 &nbsp;|&nbsp; 更新: 2023-10-20</div>
+                                <div class="card-tags">
+                                    <span class="tag">指南</span>
+                                    <span class="tag">分类</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Card 6 -->
+                        <article class="video-card">
+                            <a href="#" class="card-thumb">
+                                <img src="https://picsum.photos/seed/vid6/400/300" alt="视频缩略图">
+                                <div class="play-icon">▶</div>
+                            </a>
+                            <div class="card-info">
+                                <h3 class="card-title"><a href="#">平台特色功能介绍与使用说明</a></h3>
+                                <div class="card-meta">播放量: 3,210 &nbsp;|&nbsp; 更新: 2023-10-19</div>
+                                <div class="card-tags">
+                                    <span class="tag">功能</span>
+                                    <span class="tag">说明</span>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </section>
+
+                <!-- Sidebar -->
+                <aside>
+                    <div class="sidebar-widget">
+                        <h3 class="widget-title">热门排行</h3>
+                        <ul class="rank-list">
+                            <li>
+                                <span class="rank-num">1</span>
+                                <a href="#" class="rank-link">本周热门精选内容推荐</a>
+                            </li>
+                            <li>
+                                <span class="rank-num">2</span>
+                                <a href="#" class="rank-link">高清资源持续更新中</a>
+                            </li>
+                            <li>
+                                <span class="rank-num">3</span>
+                                <a href="#" class="rank-link">会员专享精彩片段</a>
+                            </li>
+                            <li>
+                                <span class="rank-num">4</span>
+                                <a href="#" class="rank-link">最新发布的视频合集</a>
+                            </li>
+                            <li>
+                                <span class="rank-num">5</span>
+                                <a href="#" class="rank-link">经典内容回顾系列</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="sidebar-widget">
+                        <h3 class="widget-title">网站导航</h3>
+                        <ul class="rank-list">
+                            <li><a href="#">首页</a></li>
+                            <li><a href="#">最新上传</a></li>
+                            <li><a href="#">高清分类</a></li>
+                            <li><a href="#">排行榜单</a></li>
+                            <li><a href="#">关于我们</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="sidebar-widget">
+                        <h3 class="widget-title">广告位</h3>
+                        <div class="ad-banner" style="height: 250px; background-color: #e9ecef; color: #adb5bd; display: flex; align-items: center; justify-content: center;">
+                            广告区域
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h3>关于我们</h3>
+                    <p>本站致力于提供优质的内容分享服务，致力于为用户带来更好的浏览体验。</p>
+                </div>
+                <div class="footer-col">
+                    <h3>快速链接</h3>
+                    <ul>
+                        <li><a href="#">网站地图</a></li>
+                        <li><a href="#">隐私政策</a></li>
+                        <li><a href="#">用户协议</a></li>
+                        <li><a href="#">联系客服</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>热门标签</h3>
+                    <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+                        <a href="#" style="font-size: 0.9rem;">高清</a>
+                        <a href="#" style="font-size: 0.9rem;">国产</a>
+                        <a href="#" style="font-size: 0.9rem;">精选</a>
+                        <a href="#" style="font-size: 0.9rem;">在线</a>
+                        <a href="#" style="font-size: 0.9rem;">视频</a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 视频分享平台 版权所有</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
