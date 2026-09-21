@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>盒子世界-经典网页游戏回顾与虚拟社区指南</title>
+    <meta name="description" content="盒子世界是腾讯旗下经典的3D虚拟社区网页游戏，提供换装、建造、宠物互动及社交体验。本站为您提供盒子世界怀旧攻略、账号查询、社区历史回顾及经典玩法指南。">
+    <meta name="keywords" content="盒子世界,腾讯盒子世界,盒子世界攻略,盒子世界换装,盒子世界宠物,盒子世界怀旧">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #5C8D3C; /* 经典盒子绿 */
+            --primary-dark: #4A6B2E;
+            --accent-color: #FFB74D; /* 活力橙 */
+            --bg-color: #F0F4F0;
+            --card-bg: #FFFFFF;
+            --text-main: #333333;
+            --text-secondary: #666666;
+            --border-radius: 12px;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--card-bg);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            position: relative;
+        }
+        
+        .logo span::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 16px;
+            height: 16px;
+            background: #fff;
+            border-radius: 50%;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            font-weight: 500;
+            font-size: 16px;
+            color: var(--text-main);
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+
+        .cta-btn {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-weight: 600;
+        }
+
+        .cta-btn:hover {
+            background-color: var(--primary-dark);
+            color: white;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+            padding: 80px 0;
+            overflow: hidden;
+            margin-bottom: 40px;
+        }
+
+        .hero-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+        }
+
+        .hero-text {
+            flex: 1;
+        }
+
+        .hero-tag {
+            display: inline-block;
+            background-color: rgba(92, 141, 60, 0.1);
+            color: var(--primary-dark);
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            color: var(--text-main);
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: var(--text-secondary);
+            margin-bottom: 30px;
+            max-width: 600px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .hero-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        .hero-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            border: 4px solid white;
+        }
+
+        /* Features Section */
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 32px;
+            margin-bottom: 10px;
+            color: var(--text-main);
+        }
+
+        .section-title p {
+            color: var(--text-secondary);
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .feature-card {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            font-size: 40px;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .feature-card h3 {
+            margin-bottom: 10px;
+            font-size: 20px;
+        }
+
+        .feature-card p {
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+
+        /* Content Grid */
+        .content-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+        }
+
+        .section-header h3 {
+            font-size: 22px;
+            color: var(--text-main);
+        }
+
+        .card-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .info-card {
+            background: var(--card-bg);
+            padding: 20px;
+            border-radius: var(--border-radius);
+            display: flex;
+            gap: 20px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+            align-items: center;
+        }
+
+        .info-card img {
+            width: 100px;
+            height: 100px;
+            border-radius: 8px;
+            object-fit: cover;
+            background-color: #eee;
+        }
+
+        .info-content h4 {
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+
+        .info-content p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-bottom: 10px;
+        }
+
+        .tag {
+            font-size: 12px;
+            padding: 2px 8px;
+            border-radius: 4px;
+            background-color: #f5f5f5;
+            color: #666;
+        }
+
+        .tag.hot { background-color: #ffebee; color: #d32f2f; }
+        .tag.new { background-color: #e8f5e9; color: #2e7d32; }
+
+        /* Sidebar */
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .sidebar-widget {
+            background: var(--card-bg);
+            padding: 25px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+
+        .sidebar-widget h4 {
+            margin-bottom: 20px;
+            font-size: 18px;
+            border-left: 4px solid var(--accent-color);
+            padding-left: 10px;
+        }
+
+        .guide-list li {
+            margin-bottom: 15px;
+        }
+
+        .guide-list a {
+            display: block;
+            font-size: 15px;
+            color: var(--text-main);
+            padding: 8px 0;
+            border-bottom: 1px dashed #eee;
+        }
+
+        .guide-list a:hover {
+            color: var(--primary-color);
+            padding-left: 5px;
+        }
+
+        /* Community Section */
+        .community {
+            background-color: #fff;
+            padding: 60px 0;
+            margin-top: 60px;
+        }
+
+        .community .section-title h2 {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .community .section-title p {
+            color: var(--text-secondary);
+        }
+
+        .steps {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+
+        .step {
+            text-align: center;
+            max-width: 250px;
+        }
+
+        .step-num {
+            width: 60px;
+            height: 60px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: bold;
+            margin: 0 auto 15px;
+        }
+
+        /* FAQ */
+        .faq-section {
+            padding: 60px 0;
+            margin-bottom: 60px;
+        }
+
+        .faq-item {
+            background: var(--card-bg);
+            margin-bottom: 15px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            background-color: #fff;
+        }
+
+        .faq-question:hover {
+            background-color: #fafafa;
+        }
+
+        .faq-answer {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out, padding 0.3s ease;
+            background-color: #f9f9f9;
+            color: var(--text-secondary);
+            font-size: 15px;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 200px;
+            padding: 20px;
+        }
+
+        .faq-item.active .faq-question {
+            color: var(--primary-color);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            padding: 60px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            color: #bdc3c7;
+            font-size: 14px;
+        }
+
+        .footer-col ul li a:hover {
+            color: white;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 14px;
+            color: #95a5a6;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-wrapper {
+                flex-direction: column;
+                height: auto;
+                padding: 15px 0;
+            }
+            
+            nav ul {
+                margin: 15px 0;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero-content {
+                flex-direction: column-reverse;
+                text-align: center;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-wrapper">
+            <a href="#" class="logo">
+                <span></span>
+                盒子世界
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#intro" class="active">游戏简介</a></li>
+                    <li><a href="#features">特色玩法</a></li>
+                    <li><a href="#guide">新手攻略</a></li>
+                    <li><a href="#community">社区回忆</a></li>
+                </ul>
+            </nav>
+            <a href="#guide" class="cta-btn">开始回忆</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero" id="intro">
+            <div class="container hero-content">
+                <div class="hero-text">
+                    <span class="hero-tag">经典网页游戏</span>
+                    <h1>重返童年，探索3D虚拟社区</h1>
+                    <p>盒子世界是由腾讯公司开发的一款3D虚拟社区网页游戏。在这里，你可以装扮可爱的盒子角色，建造梦想中的房子，与伙伴们一起冒险，体验纯真的童年乐趣。</p>
+                    <div class="hero-buttons">
+                        <a href="#guide" class="btn btn-primary">查看新手指南</a>
+                        <a href="#community" class="btn btn-outline">了解游戏历史</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <!-- Placeholder using picsum with specific seed for consistency -->
+                    <img src="https://picsum.photos/seed/boxworldhero/500/350" alt="盒子世界游戏场景示意图">
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="container" id="features">
+            <div class="section-title">
+                <h2>核心特色</h2>
+                <p>丰富的互动玩法与个性化定制</p>
+            </div>
+            <div class="features">
+                <article class="feature-card">
+                    <span class="feature-icon">👕</span>
+                    <h3>个性化换装</h3>
+                    <p>海量服装道具，从休闲装到节日限定，打造独一无二的专属形象，展现你的时尚品味。</p>
+                </article>
+                <article class="feature-card">
+                    <span class="feature-icon">🏠</span>
+                    <h3>自由建造</h3>
+                    <p>购买或建造属于自己的房子，自由设计室内装修与外观，邀请好友来做客。</p>
+                </article>
+                <article class="feature-card">
+                    <span class="feature-icon">🐾</span>
+                    <h3>宠物互动</h3>
+                    <p>领养可爱的宠物，照顾它们的饮食起居，宠物会陪伴你一起成长，成为最好的伙伴。</p>
+                </article>
+                <article class="feature-card">
+                    <span class="feature-icon">🎮</span>
+                    <h3>趣味小游戏</h3>
+                    <p>参与各种趣味小游戏，赢取金币和稀有道具，与朋友组队竞技，体验欢乐时光。</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- Content Area -->
+        <section class="container">
+            <div class="content-grid">
+                <!-- Main Content -->
+                <div class="main-content">
+                    <div class="section-header">
+                        <h3>热门攻略与资讯</h3>
+                        <a href="#" style="color:var(--primary-color); font-size:14px;">查看更多 &rarr;</a>
+                    </div>
+                    
+                    <div class="card-list">
+                        <article class="info-card">
+                            <img src="https://picsum.photos/seed/boxworld1/100/100" alt="新手入门">
+                            <div class="info-content">
+                                <h4>盒子世界新手入门完全指南</h4>
+                                <p>从注册账号到第一次进入盒子世界，详细讲解创建角色、领取新手礼包以及基础操作技巧。</p>
+                                <span class="tag new">新手必看</span>
+                            </div>
+                        </article>
+
+                        <article class="info-card">
+                            <img src="https://picsum.photos/seed/boxworld2/100/100" alt="房屋建造">
+                            <div class="info-content">
+                                <h4>如何快速建造豪华别墅？</h4>
+                                <p>分享房屋建造的省钱技巧与设计思路，教你利用有限的金币打造出温馨又气派的居住空间。</p>
+                                <span class="tag hot">攻略</span>
+                            </div>
+                        </article>
+
+                        <article class="info-card">
+                            <img src="https://picsum.photos/seed/boxworld3/100/100" alt="宠物培养">
+                            <div class="info-content">
+                                <h4>宠物进化路线图与养成心得</h4>
+                                <p>解析不同宠物的进化条件，提供喂养与训练的最佳方案，让你的宠物战斗力飙升。</p>
+                                <span class="tag">养成</span>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+
+                <!-- Sidebar -->
+                <aside class="sidebar">
+                    <div class="sidebar-widget">
+                        <h4>快速导航</h4>
+                        <ul class="guide-list">
+                            <li><a href="#">官方登录入口</a></li>
+                            <li><a href="#">游戏公告</a></li>
+                            <li><a href="#">玩家论坛</a></li>
+                            <li><a href="#">客服中心</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="sidebar-widget">
+                        <h4>经典活动回顾</h4>
+                        <ul class="guide-list">
+                            <li><a href="#">万圣节糖果派对</a></li>
+                            <li><a href="#">圣诞节雪人制作</a></li>
+                            <li><a href="#">春季赏花节</a></li>
+                            <li><a href="#">盒子运动会</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="sidebar-widget">
+                        <h4>常见问题 (FAQ)</h4>
+                        <div class="faq-list">
+                            <div class="faq-item">
+                                <div class="faq-question">盒子世界还在运营吗？</div>
+                                <div class="faq-answer">目前游戏已停止更新，但部分服务器仍可访问怀旧版本，具体请关注官方公告。</div>
+                            </div>
+                            <div class="faq-item">
+                                <div class="faq-question">如何找回忘记的密码？</div>
+                                <div class="faq-answer">请通过官方登录页面的“忘记密码”功能，使用注册邮箱进行验证找回。</div>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </section>
+
+        <!-- Community Section -->
+        <section class="community" id="community">
+            <div class="container">
+                <div class="section-title">
+                    <h2>加入我们的回忆</h2>
+                    <p>无论你是老玩家还是新朋友，这里都有属于你的故事</p>
+                </div>
+                <div class="steps">
+                    <div class="step">
+                        <div class="step-num">1</div>
+                        <h4>登录怀旧版本</h4>
+                        <p style="color:#666; font-size:14px;">访问游戏客户端，输入账号密码进入熟悉的场景。</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-num">2</div>
+                        <h4>寻找老友</h4>
+                        <p style="color:#666; font-size:14px;">通过好友列表或世界频道，寻找当年一起长大的伙伴。</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-num">3</div>
+                        <h4>重温经典</h4>
+                        <p style="color:#666; font-size:14px;">一起逛街、跳舞、参加活动，找回最纯真的快乐。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Detailed FAQ Section -->
+        <section class="container faq-section">
+            <div class="section-title">
+                <h2>常见问题解答</h2>
+            </div>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question">盒子世界是什么类型的游戏？</div>
+                    <div class="faq-answer">盒子世界是一款3D虚拟社区网页游戏，融合了角色扮演、换装、建造、宠物养成等多种元素，旨在为玩家提供一个安全、有趣的在线社交环境。</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">游戏需要下载客户端吗？</div>
+                    <div class="faq-answer">是的，盒子世界最初需要下载专用的客户端程序才能运行。目前主要提供怀旧版本的下载支持。</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">如何充值游戏币？</div>
+                    <div class="faq-answer">游戏币通常可以通过腾讯官方渠道进行充值，购买Q币或Q点后，在游戏内的充值页面进行兑换。</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">账号安全如何保障？</div>
+                    <div class="faq-answer">请勿向他人透露账号密码，定期修改密码，并绑定手机或邮箱进行双重验证，以确保账号安全。</div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>关于盒子世界</h4>
+                    <p style="color:#bdc3c7; font-size:14px; line-height:1.8;">
+                        盒子世界是腾讯推出的经典3D虚拟社区游戏，承载了许多80后、90后的童年回忆。本站为玩家提供攻略查询与历史回顾服务。
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="#">游戏简介</a></li>
+                        <li><a href="#">新手教程</a></li>
+                        <li><a href="#">玩家论坛</a></li>
+                        <li><a href="#">隐私政策</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>游戏特色</h4>
+                    <ul>
+                        <li><a href="#">3D换装系统</a></li>
+                        <li><a href="#">房屋建造</a></li>
+                        <li><a href="#">宠物养成</a></li>
+                        <li><a href="#">社交互动</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>联系我们</h4>
+                    <ul>
+                        <li><a href="#">意见反馈</a></li>
+                        <li><a href="#">合作洽谈</a></li>
+                        <li><a href="#">免责声明</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 盒子世界怀旧站. All Rights Reserved. 本站为非官方网站，仅提供怀旧资料整理与攻略服务。</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // FAQ Accordion Logic
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                question.addEventListener('click', () => {
+                    // Close other items
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                    // Toggle current item
+                    item.classList.toggle('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
